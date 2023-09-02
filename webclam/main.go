@@ -8,7 +8,7 @@ import (
 	"net/http"
 )
 
-// 定义一个爬虫工具的结构体
+// Spider 定义一个爬虫工具的结构体
 type Spider struct {
 	// 要爬取的网站的URL
 	URL string
@@ -16,7 +16,7 @@ type Spider struct {
 	Data []byte
 }
 
-// 定义一个爬取网页数据的方法
+// Crawl 定义一个爬取网页数据的方法
 func (s *Spider) Crawl() {
 	// 使用http包发送GET请求
 	resp, err := http.Get(s.URL)
@@ -34,7 +34,7 @@ func (s *Spider) Crawl() {
 	s.Data = data
 }
 
-// 定义一个打印数据的方法
+// Print 定义一个打印数据的方法
 func (s *Spider) Print() {
 	// 将数据转换为字符串并打印
 	fmt.Println(string(s.Data))
@@ -44,7 +44,7 @@ func (s *Spider) Print() {
 func main() {
 	// 创建一个Spider结构体实例，指定要爬取的网站URL
 	s := &Spider{
-		URL: "https://www.baidu.com",
+		URL: "https://www.bilibili.com/",
 	}
 	// 调用Crawl方法爬取数据
 	s.Crawl()
