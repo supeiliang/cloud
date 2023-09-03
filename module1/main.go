@@ -16,6 +16,9 @@ func main() {
 }
 
 func handleRequest(w http.ResponseWriter, r *http.Request) {
+	if r.URL.Path == "/favicon.ico" {
+		return
+	}
 	// 将请求中的 header 写入 response header
 	for key, values := range r.Header {
 		for _, value := range values {
